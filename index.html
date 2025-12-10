@@ -18,10 +18,16 @@
     <div class="settings-panel" id="settingsPanel">
         <h3>Background</h3>
         <div class="bg-options">
-            <div class="bg-option" onclick="changeBg('cyber')" data-bg="cyber">Cyber</div>
-            <div class="bg-option" onclick="changeBg('matrix')" data-bg="matrix">Matrix</div>
-            <div class="bg-option" onclick="changeBg('hacker')" data-bg="hacker">Hacker</div>
-            <div class="bg-option" onclick="changeBg('dark')" data-bg="dark">Dark</div>
+            <div class="bg-option" onclick="changeBg('cyber')" data-bg="cyber">CyberHub</div>
+            <div class="bg-option" onclick="changeBg('matrix')" data-bg="matrix">CyberHub</div>
+            <div class="bg-option" onclick="changeBg('hacker')" data-bg="hacker">CyberHub</div>
+            <div class="bg-option" onclick="changeBg('dark')" data-bg="dark">CyberHub</div>
+        </div>
+        <div class="custom-bg">
+            <input type="file" id="bgUpload" accept="image/*" onchange="uploadCustomBg(event)">
+            <label for="bgUpload" class="upload-btn">
+                <i class="fas fa-upload"></i> Upload Image
+            </label>
         </div>
     </div>
     

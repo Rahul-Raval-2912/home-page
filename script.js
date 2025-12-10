@@ -48,6 +48,27 @@ function changeBg(theme) {
     document.querySelector(`[data-bg="${theme}"]`).classList.add('active');
 }
 
+// Custom background upload
+function uploadCustomBg(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imageUrl = e.target.result;
+            document.body.style.backgroundImage = `url(${imageUrl})`;
+            document.body.className = 'custom';
+            localStorage.setItem('customBg', imageUrl);
+            localStorage.setItem('bgTheme', 'custom');
+            
+            // Clear active states
+            document.querySelectorAll('.bg-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
 // Time display
 function updateTime() {
     const now = new Date();
@@ -70,7 +91,18 @@ function updateTime() {
 document.addEventListener('DOMContentLoaded', function() {
     // Load saved theme
     const savedTheme = localStorage.getItem('bgTheme') || 'cyber';
-    changeBg(savedTheme);
+    
+    if (savedTheme === 'custom') {
+        const customBg = localStorage.getItem('customBg');
+        if (customBg) {
+            document.body.style.backgroundImage = `url(${customBg})`;
+            document.body.className = 'custom';
+        } else {
+            changeBg('cyber');
+        }
+    } else {
+        changeBg(savedTheme);
+    }
     
     // Start time
     updateTime();

@@ -106,6 +106,39 @@ body.dark {
     color: #00ff88;
 }
 
+.custom-bg {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+#bgUpload {
+    display: none;
+}
+
+.upload-btn {
+    display: block;
+    padding: 12px;
+    background: rgba(0,255,136,0.1);
+    border: 1px solid rgba(0,255,136,0.3);
+    border-radius: 8px;
+    color: #00ff88;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: rgba(0,255,136,0.2);
+    transform: translateY(-2px);
+}
+
+body.custom {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 .container {
     padding: 40px 20px;
     max-width: 1200px;
