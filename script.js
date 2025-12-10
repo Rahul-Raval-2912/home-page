@@ -61,6 +61,17 @@ function setCustomImage(imagePath) {
     }
 }
 
+// Auto-detect new images in folder
+function loadImagesFromFolder() {
+    const commonExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp'];
+    const imageGallery = document.querySelector('.image-gallery');
+    const existingImages = Array.from(document.querySelectorAll('.image-option img')).map(img => img.src);
+    
+    // This function will work when you add new images manually to the HTML
+    // For automatic detection, you'd need a server-side script
+    console.log('Image gallery ready for new additions');
+}
+
 // Custom background upload
 function uploadCustomBg(event) {
     const file = event.target.files[0];
@@ -187,11 +198,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Track clicks
     document.addEventListener('click', updateClickCount);
     
-    // Custom cursor tracking
+    // Custom cursor tracking - optimized
+    let mouseX = 0, mouseY = 0;
     document.addEventListener('mousemove', (e) => {
-        document.body.style.setProperty('--mouse-x', e.clientX + 'px');
-        document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+        mouseX = e.clientX;
+        mouseY = e.clientY;
     });
+    
+    function updateCursor() {
+        document.body.style.setProperty('--mouse-x', mouseX + 'px');
+        document.body.style.setProperty('--mouse-y', mouseY + 'px');
+        requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
     
     // Close settings when clicking outside
     document.addEventListener('click', function(e) {

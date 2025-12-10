@@ -299,7 +299,7 @@ body.custom {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: #666;
+    color: rgba(0,212,255,0.7);
     font-size: 18px;
 }
 
@@ -307,17 +307,24 @@ body.custom {
     width: 100%;
     padding: 18px 20px 18px 55px;
     font-size: 16px;
-    border: none;
+    border: 1px solid rgba(0,212,255,0.3);
     border-radius: 30px;
     outline: none;
-    background: rgba(255,255,255,0.95);
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+    color: white;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
 }
 
 #search:focus {
-    box-shadow: 0 8px 32px rgba(0,212,255,0.3);
-    background: white;
+    box-shadow: 0 8px 32px rgba(0,212,255,0.4);
+    background: rgba(0,0,0,0.6);
+    border-color: rgba(0,212,255,0.6);
+}
+
+#search::placeholder {
+    color: rgba(255,255,255,0.6);
 }
 
 .search-engines {
