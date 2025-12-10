@@ -48,6 +48,22 @@ function changeBg(theme) {
     document.querySelector(`[data-bg="${theme}"]`).classList.add('active');
 }
 
+// Set preset image
+function setCustomImage(imagePath) {
+    document.body.style.backgroundImage = `url(${imagePath})`;
+    document.body.className = 'custom';
+    localStorage.setItem('bgTheme', 'preset');
+    localStorage.setItem('presetImage', imagePath);
+    
+    // Clear all active states
+    document.querySelectorAll('.bg-option, .image-option').forEach(opt => {
+        opt.classList.remove('active');
+    });
+    
+    // Set active image
+    document.querySelector(`[onclick="setCustomImage('${imagePath}')"]`).classList.add('active');
+}
+
 // Custom background upload
 function uploadCustomBg(event) {
     const file = event.target.files[0];
@@ -61,7 +77,7 @@ function uploadCustomBg(event) {
             localStorage.setItem('bgTheme', 'custom');
             
             // Clear active states
-            document.querySelectorAll('.bg-option').forEach(opt => {
+            document.querySelectorAll('.bg-option, .image-option').forEach(opt => {
                 opt.classList.remove('active');
             });
         };
@@ -97,6 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (customBg) {
             document.body.style.backgroundImage = `url(${customBg})`;
             document.body.className = 'custom';
+        } else {
+            changeBg('cyber');
+        }
+    } else if (savedTheme === 'preset') {
+        const presetImage = localStorage.getItem('presetImage');
+        if (presetImage) {
+            setCustomImage(presetImage);
         } else {
             changeBg('cyber');
         }

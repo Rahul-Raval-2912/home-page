@@ -133,6 +133,49 @@ body.dark {
     transform: translateY(-2px);
 }
 
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.image-option {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.image-option:hover {
+    border-color: #00ff88;
+    transform: scale(1.05);
+}
+
+.image-option.active {
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0,255,136,0.5);
+}
+
+.image-option img {
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-option span {
+    display: block;
+    padding: 5px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 12px;
+    text-align: center;
+}
+
 body.custom {
     background-size: cover;
     background-position: center;
