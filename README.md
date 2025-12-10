@@ -1,22 +1,14 @@
-# Firefox Custom Home Page
-
-A minimal, modern home page for Firefox with quick access shortcuts and Google search.
-
+# Home Page
+just Home page
 ## Setup
 
-1. Push this repository to GitHub
-2. Enable GitHub Pages in repository settings
-3. In Firefox, go to Settings > Home > Homepage and new windows
-4. Set custom URL to: `https://yourusername.github.io/repository-name`
+if you don't know this 
+sorry but you are stupid 
 
 ## Features
 
-- Clean, modern design
-- Google search integration
-- Quick access shortcuts
-- Responsive layout
-- Glassmorphism UI effects
+show off
 
 ## Customization
 
-Edit the shortcuts in `index.html` to add your frequently visited sites.
+you can see by your self
