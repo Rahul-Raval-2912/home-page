@@ -183,7 +183,7 @@ function updateGreeting() {
         greeting = 'Good evening';
     }
 
-    document.getElementById('greetings').textContent = `${greeting}, <span class="master">${vemacitrind}</span>`;
+    document.getElementById('greetings').textContent = `${greeting}, <span class="master">${Master}</span>`;
 }
 
 // Weather API
