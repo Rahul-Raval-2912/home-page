@@ -170,21 +170,27 @@ function updateDate() {
 }
 
 // Greeting based on time
+const masterName = 'Rahul'; // or however you get the name
+
 function updateGreeting() {
     const now = new Date();
-    const hour = now.getHours();
+    const hour = now.getHours(); // 0–23 [web:30]
     let greeting;
 
-    if (hour < 12) {
+    if (hour >= 5 && hour < 12) {
         greeting = 'Good morning';
-    } else if (hour < 17) {
+    } else if (hour >= 12 && hour < 17) {
         greeting = 'Good afternoon';
-    } else {
+    } else if (hour >= 17 && hour < 22) {
         greeting = 'Good evening';
+    } else {
+        greeting = 'Good night';
     }
 
-    document.getElementById('greetings').textContent = `${greeting}, <span class="master">${Master}</span>`;
+    document.getElementById('greetings').innerHTML =
+        `${greeting}, <span class="master">${masterName}</span>`;
 }
+
 
 // Weather API
 async function updateWeather() {
